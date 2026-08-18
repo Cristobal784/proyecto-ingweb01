@@ -1,21 +1,22 @@
 <template>
   <div>
-    <Hijo mensaje="Hola desde el padre" />
-    <Hijo2 mensaje="Que pasa malayas soy el hijo de en medio malditos madafakas" />
-    <Hijo3 mensaje="Buena petes soy el hijo menorete" />
+    <HijoBoton @saludo="mostrarSaludo" />
+    <p v-if="mensaje">{{ mensaje }}</p>
   </div>
 </template>
 
 <script>
-import Hijo from './Hijo.vue'
-import Hijo2 from './Hijo2.vue'
-import Hijo3 from './Hijo3.vue'
+import HijoBoton from './HijoBoton.vue'
 
 export default {
-  components: {
-    Hijo,
-    Hijo2,
-    Hijo3
+  components: { HijoBoton },
+  data() {
+    return { mensaje: '' }
+  },
+  methods: {
+    mostrarSaludo() {
+      this.mensaje = 'Hola desde el hijo';
+    }
   }
 }
 </script>
